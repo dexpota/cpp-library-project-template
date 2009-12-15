@@ -12,7 +12,6 @@
   * GNU Make or equivalent.
   * GCC or an alternative, reasonably conformant C++ compiler.
   * Boost C++ Libraries v1.37+ [HEADERS and LIBRARIES]
-  * Qt Framework v4.5+
   * Log4Cxx v0.10.0+
   * UnitTest++ (a.k.a. unittest-cpp)
 
