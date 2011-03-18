@@ -1,5 +1,5 @@
 FILE (GLOB_RECURSE project_SRCS *.cpp *.cxx *.cc *.C *.c *.h *.hpp)
-SET (project_LIBS ${Boost_LIBRARIES} ${Log4Cxx_LIBRARIES})
+SET (project_LIBS ${Boost_LIBRARIES} ${GLog_LIBRARIES})
 SET (project_BIN ${PROJECT_NAME})
 
 IF (NOT DEFINED project_build_shared)
