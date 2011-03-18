@@ -39,6 +39,8 @@ LIST (APPEND CMAKE_PREFIX_PATH "${MAINFOLDER}/tools")
 LIST (APPEND CMAKE_PREFIX_PATH "${MAINFOLDER}/thirdparty")
 SET (CMAKE_MODULE_PATH "${MAINFOLDER}/tools/share/cmake")
 INCLUDE_DIRECTORIES("${MAINFOLDER}/include")
+INCLUDE_DIRECTORIES("${MAINFOLDER}/thirdparty/gmock/include")
+INCLUDE_DIRECTORIES("${MAINFOLDER}/thirdparty/gmock/gtest/include")
 
 #
 # Locate Project Prerequisites 
@@ -47,12 +49,11 @@ SET (Boost_ADDITIONAL_VERSIONS "1.39" "1.39.0" "1.40" "1.40.0" "1.41" "1.41.0" "
 FIND_PACKAGE (Boost 1.37 COMPONENTS "date_time" "filesystem" "graph" "iostreams" "program_options" "regex" "serialization" "signals" "system" "thread" "wserialization" REQUIRED)
 INCLUDE_DIRECTORIES(${Boost_INCLUDE_DIRS})
 LINK_DIRECTORIES(${Boost_LIBRARY_DIRS})
-FIND_PACKAGE (Log4Cxx REQUIRED)
-INCLUDE_DIRECTORIES(${Log4Cxx_INCLUDE_DIRS})
-LINK_DIRECTORIES(${Log4Cxx_LIBRARY_DIRS})
-FIND_PACKAGE (UnitTestPlusPlus REQUIRED)
-INCLUDE_DIRECTORIES(${UnitTestPlusPlus_INCLUDE_DIRS})
-LINK_DIRECTORIES(${UnitTestPlusPlus_LIBRARY_DIRS})
+INCLUDE(FindPkgConfig)
+PKG_CHECK_MODULES(GLog REQUIRED libglog)
+INCLUDE_DIRECTORIES(${GLog_INCLUDE_DIRS})
+LINK_DIRECTORIES(${GLog_LIBRARY_DIRS})
+ADD_SUBDIRECTORY(thirdparty)
 
 #
 # Configure Files

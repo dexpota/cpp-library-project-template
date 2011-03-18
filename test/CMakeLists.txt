@@ -1,6 +1,6 @@
 FILE (GLOB_RECURSE test_SRCS *.cpp *.cxx *.cc *.C *.c *.h *.hpp)
-SET (test_LIBS ${Boost_LIBRARIES} ${Log4Cxx_LIBRARIES} ${UnitTestPlusPlus_LIBRARIES} ${PROJECT_NAME})
-SET (test_BIN ${PROJECT_NAME}-unittests)
+SET (test_LIBS ${Boost_LIBRARIES} ${GLog_LIBRARIES} gmock_main ${PROJECT_NAME})
+SET (test_BIN ${PROJECT_NAME}_test)
 
 IF (NOT CMAKE_CROSSCOMPILING)
     LINK_DIRECTORIES(${MAINFOLDER}/lib)
